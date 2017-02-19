@@ -16,7 +16,9 @@ export class ProgressBarDynamicComponent {
   public dynamic: number;
   @Input()
   public type: string;
- 
+  @Input()
+  public insideText: string;
+
   public constructor() {}
  
 }

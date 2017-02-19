@@ -1,6 +1,7 @@
 .card {
     box-shadow: 5px 5px 5px #888;
     margin:10px 5px;
+    height: 245px;
 }
 .card span {
     display: block;
@@ -41,3 +42,25 @@
     font-size: 2em !important;
     color: #000 !important;    
 }
+
+.percent-passed {
+    font-size: 3em;
+}
+
+.percent-passed span {
+    font-size: 12px;
+    color: #000;
+}
+
+.vertical-center {
+    display: flex;
+    align-items: center;
+}
+
+.metrics-result {
+    height: 245px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.metrics-result span {display: block;}

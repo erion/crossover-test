@@ -2,18 +2,26 @@
 
   <!-- pending -->
   <progressbar *ngSwitchCase="1"
-    [max]="max" [value]="dynamic" type="warning"></progressbar>
+    [max]="max" [value]="dynamic" type="warning">
+    <span *ngIf="insideText">{{insideText}}% <br /> code covered"</span>
+  </progressbar>
 
   <!-- running -->
   <progressbar *ngSwitchCase="2"
-    [max]="max" [value]="dynamic" type="info"></progressbar>
+    [max]="max" [value]="dynamic" type="info">
+    <span *ngIf="insideText">{{insideText}}% <br /> code covered"</span>
+  </progressbar>
 
   <!-- rejected -->
   <progressbar *ngSwitchCase="3"
-    [max]="max" [value]="dynamic" type="danger"></progressbar>
+    [max]="max" [value]="dynamic" type="danger">
+    <span *ngIf="insideText">{{insideText}}% <br /> code covered"</span>
+  </progressbar>
 
   <!-- complete -->
   <progressbar *ngSwitchCase="4"
-    [max]="max" [value]="dynamic" type="success"></progressbar>
+    [max]="max" [value]="dynamic" type="success">
+    <span *ngIf="insideText">{{insideText}}% <br /> code covered"</span>
+  </progressbar>
 
 </div>

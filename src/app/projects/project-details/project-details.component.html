@@ -5,6 +5,7 @@
       <span>Metrics</span>
       <div class="row">
 
+        <!-- test -->
         <div class="col-md-6 text-center">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 319.982 319.982" 
             style="enable-background:new 0 0 319.982 319.982;" xml:space="preserve"
@@ -17,6 +18,7 @@
           Test
         </div>
 
+        <!-- maintainability -->
         <div class="col-md-6 text-center">
           <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 319.982 319.982" 
             style="enable-background:new 0 0 319.982 319.982;" xml:space="preserve"
@@ -33,6 +35,7 @@
 
       <div class="row">
 
+        <!-- security -->
         <div class="col-md-6 text-center">
           <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgb(255, 214, 51);" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 408 408" xml:space="preserve">
             <g><g id="forward">
@@ -43,6 +46,7 @@
           Security
         </div>
 
+        <!-- workmanship -->
         <div class="col-md-6 text-center">
           <svg xmlns="http://www.w3.org/2000/svg" style="fill: rgb(255, 214, 51);" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="60px" height="60px" viewBox="0 0 408 408" xml:space="preserve">
             <g><g id="forward">
@@ -61,6 +65,7 @@
     <div class="col-md-2 col-md-2-5 card" [ngClass]="project.build.state.name">
       <span>Build</span>
 
+      <!-- builds done -->
       <div class="row">
         <div class="col-md-6 text-center"
             *ngFor="let build of project.build.builds" >
@@ -71,8 +76,9 @@
 
       <div class="row">
         <div class="col-md-12 text-center">&nbsp;</div>
-      </div>        
+      </div> 
 
+      <!-- time made -->
       <div class="row">
         <div class="col-md-12 text-center">
           {{project.build.startedAt | date: "jm" | lowercase }} - {{project.build.startedAt | date: "yMd"}}
@@ -84,18 +90,111 @@
     <!-- Unit Test -->
     <div class="col-md-2 col-md-2-5 card" [ngClass]="project.unitTest.state.name">
       <span>Unit Test</span>
-      
+
+      <div class="row vertical-center">
+
+        <!-- chart -->
+        <div class="col-md-6">
+          <app-google-chart id="unitTestChart" [chartData]="getUnitTestChartData(project)" [chartOptions]="pie_ChartOptions" 
+            chartType="PieChart">
+          </app-google-chart>
+        </div>
+
+        <!-- percentage -->
+        <div class="col-md-6 percent-passed">
+          {{project.unitTest.percPassed}}%
+          <span>tests passed</span>
+        </div>
+
+      </div>
+
+      <!-- code covered -->
+      <progress-bar-dynamic 
+        [max]=100
+        [dynamic]='project.unitTest.codeCovered' 
+        [type]='project.unitTest.state.id'
+        [insideText]='project.unitTest.codeCovered'>
+      </progress-bar-dynamic>
+
     </div>
 
     <!-- Functional Test -->
     <div class="col-md-2 col-md-2-5 card" [ngClass]="project.functionalTest.state.name">
       <span>Functional Test</span>
+
+      <div class="row vertical-center">
+
+        <!-- chart -->
+        <div class="col-md-6">
+          <app-google-chart id="functionalTestChart" [chartData]="getFunctionalTestChartData(project)" [chartOptions]="pie_ChartOptions" 
+            chartType="PieChart">
+          </app-google-chart>
+        </div>
+
+        <!-- percentage -->
+        <div class="col-md-6 percent-passed">
+          {{project.functionalTest.percPassed}}%
+          <span>tests passed</span>
+        </div>
+      </div>
+
+      <!-- code covered -->
+      <progress-bar-dynamic 
+        [max]=100
+        [dynamic]='project.functionalTest.codeCovered' 
+        [type]='project.functionalTest.state.id'
+        [insideText]='project.functionalTest.codeCovered'>
+      </progress-bar-dynamic>
       
     </div>
 
     <!-- Result -->
     <div class="col-md-2">
       
+      <div [ngSwitch]="project.state.id">
+
+        <!-- pending -->
+        <div class="row" *ngSwitchCase="1">
+          <div class="col-md-12 metrics-result">
+            <span class="title">Result:</span>
+            {{project.state.name | ucfirst}}
+            <button>Deploy</button> to:
+            <input />
+          </div>
+        </div>
+
+        <!-- running -->
+        <div class="row" *ngSwitchCase="2">
+          <div class="col-md-12">
+            Result: <br />
+            {{project.state.name | ucfirst}}
+            <button>Deploy</button> to:
+            <input />
+          </div>
+        </div>
+
+        <!-- rejected -->
+        <div class="row" *ngSwitchCase="3">
+          <div class="col-md-12 metrics-result">
+            <span class="title">Result:</span>
+            <span>Change Rejected</span>
+            <span>Metrics Reduction</span>
+            <button type="button" class="btn btn-primary">Find Issues</button>
+          </div>
+        </div>
+
+        <!-- complete -->
+        <div class="row" *ngSwitchCase="4">
+          <div class="col-md-12">
+            Result: <br />
+            {{project.state.name | ucfirst}}
+            <button>Deploy</button> to:
+            <input />
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>

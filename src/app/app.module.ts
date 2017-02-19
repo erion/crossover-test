@@ -21,6 +21,7 @@ import { ProjectsListComponent } from './projects/projects-list.component';
 import { ProgressBarDynamicComponent } from './ng2-components/progress-bar-dinamyc/progress-bar-dinamyc.component';
 import { UcfirstPipe } from './custom-pipes/ucfirst.pipe';
 import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { GoogleChartComponent } from './google-chart/google-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProjectDetailsComponent } from './projects/project-details/project-deta
     ProgressBarDynamicComponent,
     UcfirstPipe,
     ProjectDetailsComponent,
+    GoogleChartComponent
   ],
   imports: [
     BrowserModule,
