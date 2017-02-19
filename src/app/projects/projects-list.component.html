@@ -1,0 +1,79 @@
+<div class="container">
+<h2>Projects</h2>
+  <!-- header -->
+  <div class="row">
+    <div class="col-md-2">
+      Changelist / Build
+    </div>
+    <div class="col-md-1 text-center">
+      Owner
+    </div>
+    <div class="col-md-3 text-center">
+      Time Started
+    </div>
+    <div class="col-md-1 text-center">
+      State
+    </div>
+    <div class="col-md-1">
+      Metrics
+    </div>
+    <div class="col-md-1">
+      Build
+    </div>
+    <div class="col-md-1">
+      Unit Test
+    </div>
+    <div class="col-md-2">
+      Functional Test
+    </div>            
+  </div>
+  <!-- /header -->
+  <div class="row projects-row vertical-center"
+      *ngFor="let project of projects" 
+      (click)="onSelect(project)"
+      [ngClass]="project.state.name">
+      
+    <div class="col-md-2">
+      {{project.build.code}}
+    </div>
+    <div class="col-md-1">
+      {{project.owner}}
+    </div>
+    <div class="col-md-3">
+      {{project.startedAt | date: "yMdjm" | lowercase }}
+    </div>
+    <div class="col-md-1">
+      {{project.state.name | ucfirst }}
+    </div>
+    <div class="col-md-1">
+      <progress-bar-dynamic 
+        [max]=100 
+        [dynamic]='project.metrics.progress' 
+        [type]='project.metrics.state.id' >
+      </progress-bar-dynamic>
+    </div>
+    <div class="col-md-1">
+      <progress-bar-dynamic 
+        [max]=100 
+        [dynamic]='project.build.progress' 
+        [type]='project.build.state.id' >
+      </progress-bar-dynamic>
+    </div>
+    <div class="col-md-1">
+      <progress-bar-dynamic 
+        [max]=100 
+        [dynamic]='project.unitTest.progress' 
+        [type]='project.unitTest.state.id' >
+      </progress-bar-dynamic>
+    </div>
+    <div class="col-md-1">
+      <progress-bar-dynamic 
+        [max]=100 
+        [dynamic]='project.functionalTest.progress' 
+        [type]='project.functionalTest.state.id' >
+      </progress-bar-dynamic>
+    </div>
+    <div class="col-md-1">
+    </div>    
+  </div>
+</div>
