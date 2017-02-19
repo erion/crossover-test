@@ -1,0 +1,19 @@
+<div class="custom vertical-center" [ngSwitch]="type">
+
+  <!-- pending -->
+  <progressbar *ngSwitchCase="1"
+    [max]="max" [value]="dynamic" type="warning"></progressbar>
+
+  <!-- running -->
+  <progressbar *ngSwitchCase="2"
+    [max]="max" [value]="dynamic" type="info"></progressbar>
+
+  <!-- rejected -->
+  <progressbar *ngSwitchCase="3"
+    [max]="max" [value]="dynamic" type="danger"></progressbar>
+
+  <!-- complete -->
+  <progressbar *ngSwitchCase="4"
+    [max]="max" [value]="dynamic" type="success"></progressbar>
+
+</div>
