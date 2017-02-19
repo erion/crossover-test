@@ -1,0 +1,43 @@
+.card {
+    box-shadow: 5px 5px 5px #888;
+    margin:10px 5px;
+}
+.card span {
+    display: block;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.col-md-2-5 {
+    width: 18.5% !important;
+}
+
+.pending {border: 2px solid #d3d3d3;}
+.pending span {color: #d3d3d3;}
+
+.running {border: 2px solid #5bc0de;}
+.running span {color: #5bc0de;}
+
+.rejected {border: 2px solid #d9534f;}
+.rejected span {color: #d9534f;}
+
+.complete {border: 2px solid #5cb85c;}
+.complete span {color: #5cb85c;}
+
+.project-icon {font-size: 4em;}
+
+.metric-text {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    font-size: 2em !important;
+    color: #fff !important;
+}
+
+.metric-text-bottom {
+    position: absolute;
+    top: 13%;
+    left: 32%;
+    font-size: 2em !important;
+    color: #000 !important;    
+}

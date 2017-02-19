@@ -9,6 +9,7 @@ import { InMemoryWebApiModule } from './vendors/in-memory-web-api-master';
 import { InMemoryDataService } from './services/in-memory-data.service';
 
 import { ProjectsListComponent } from './projects/projects-list.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
 import { ProgressBarDynamicComponent } from './ng2-components/progress-bar-dinamyc/progress-bar-dinamyc.component';
 import { ProgressbarModule } from 'ng2-bootstrap/progressbar'
 import { LocalService } from './services/local.service';
@@ -26,6 +27,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         ProjectsListComponent,
+        ProjectDetailsComponent,
         ProgressBarDynamicComponent,
         UcfirstPipe,
       ],

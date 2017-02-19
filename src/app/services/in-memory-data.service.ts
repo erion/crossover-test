@@ -228,7 +228,7 @@ export class InMemoryDataService implements InMemoryDbService {
           state: {id: 4, name: "complete"},
           code: '168794',
           progress: 100,
-          startedAt: '',
+          startedAt: '2017-02-05T15:20:00Z',
           builds: ['debug', 'release']
         },
         unitTest: {
