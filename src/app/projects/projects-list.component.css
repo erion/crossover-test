@@ -2,6 +2,9 @@
     background-color:#f5f5ef;
 }
 
+.col-icon {padding-top: 0.8em;}
+.col {padding-top: 1.5em;}
+
 div a {
     text-decoration: none;
     color: inherit;
@@ -15,8 +18,8 @@ div a {
     font-size: 3em;
 }
 
-.project-details {
-    position: relative;
+.projects-row .selected {
+    
 }
 
 .pending {
@@ -62,4 +65,12 @@ div a {
 .vertical-center {
     display: flex;
     align-items: center;
+}
+
+.project-details {
+    float: left; 
+    top: 1em;
+    left: -24%;
+    color: #000;
+    z-index: 10;
 }

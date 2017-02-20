@@ -1,4 +1,5 @@
-import { Directive, Component, ElementRef, Input, OnInit} from '@angular/core';
+import { Directive, Component, ElementRef, Input, AfterViewInit} from '@angular/core';]
+
 declare var google:any;
 declare var googleLoaded:any;
 
@@ -11,30 +12,30 @@ declare var googleLoaded:any;
 @Directive({
   selector: '[GoogleChart]'
 })
-export class GoogleChartComponent implements OnInit {
+export class GoogleChartComponent implements AfterViewInit {
   public _element:any;
 
   @Input()
-  chartType:string;
+  chartType: string;
   @Input() 
   chartOptions: Object;
   @Input() 
   chartData: Object;
+  @Input()
+  elementId: string;
 
   constructor(public element: ElementRef) {
     this._element = this.element.nativeElement;
   }
-  
-  ngOnInit() {
+
+  ngAfterViewInit() {
     google.charts.load('current', {'packages':['corechart']});
     this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element)
-console.log('initiated');
   }
 
   drawGraph (chartOptions, chartType, chartData, el) {
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var wrapper;
+    google.charts.setOnLoadCallback(() => {
+      let wrapper;
       wrapper = new google.visualization.ChartWrapper({
         chartType: chartType,
         dataTable: chartData ,
@@ -42,11 +43,7 @@ console.log('initiated');
         containerId: el.id
       });
       wrapper.draw();
-    }
+    });
   }
 
-  updateChart() {
-    google.charts.load('current', {'packages':['corechart']});
-    this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element)
-  }
 }

@@ -95,7 +95,7 @@
 
         <!-- chart -->
         <div class="col-md-6">
-          <app-google-chart id="unitTestChart" [chartData]="getUnitTestChartData(project)" [chartOptions]="pie_ChartOptions" 
+          <app-google-chart [id]="project.id" [elementId]="project.id" [chartData]="getUnitTestChartData(project)" [chartOptions]="pie_ChartOptions" 
             chartType="PieChart">
           </app-google-chart>
         </div>
@@ -126,7 +126,7 @@
 
         <!-- chart -->
         <div class="col-md-6">
-          <app-google-chart id="functionalTestChart" [chartData]="getFunctionalTestChartData(project)" [chartOptions]="pie_ChartOptions" 
+          <app-google-chart [id]="project.build" [elementId]="project.build" [chartData]="getFunctionalTestChartData(project)" [chartOptions]="pie_ChartOptions" 
             chartType="PieChart">
           </app-google-chart>
         </div>
@@ -189,6 +189,10 @@
             <span class="title">Result:</span>
             <span class="h1">Complete</span>
             <button type="button" class="btn btn-primary">Deploy</button> to:
+            <select>
+              <option>Development</option>
+              <option>Production</option>
+            </select>
           </div>
         </div>
 

@@ -3,6 +3,7 @@
     margin:10px 5px;
     height: 245px;
 }
+
 .card span {
     display: block;
     font-size: 1.5em;
@@ -10,7 +11,7 @@
 }
 
 .col-md-2-5 {
-    width: 18.5% !important;
+    width: 19.5% !important;
 }
 
 .pending {border: 2px solid #b0b082;}
