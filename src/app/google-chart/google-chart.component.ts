@@ -1,4 +1,4 @@
-import { Directive, Component, ElementRef, Input, AfterViewInit} from '@angular/core';]
+import { Directive, Component, ElementRef, Input, AfterViewInit} from '@angular/core';
 
 declare var google:any;
 declare var googleLoaded:any;
