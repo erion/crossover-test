@@ -14,6 +14,7 @@ import { ProgressBarDynamicComponent } from './ng2-components/progress-bar-dinam
 import { ProgressbarModule } from 'ng2-bootstrap/progressbar'
 import { LocalService } from './services/local.service';
 import { UcfirstPipe } from './custom-pipes/ucfirst.pipe';
+import { GoogleChartComponent } from './google-chart/google-chart.component';
 
 
 describe('AppComponent', () => {
@@ -30,10 +31,11 @@ describe('AppComponent', () => {
         ProjectDetailsComponent,
         ProgressBarDynamicComponent,
         UcfirstPipe,
+        GoogleChartComponent,
       ],
       providers: [{provide: APP_BASE_HREF, useValue : '/' }]
     });      
-    TestBed.compileComponents();
+    TestBed.compileComponents(); 
   });
 
   it('should create the app', async(() => {

@@ -15,6 +15,8 @@ import { ProgressbarModule } from 'ng2-bootstrap/progressbar'
 import { ProgressBarDynamicComponent } from '../ng2-components/progress-bar-dinamyc/progress-bar-dinamyc.component';
 import { LocalService } from '../services/local.service';
 import { Projects } from '../classes/projects';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { GoogleChartComponent } from '../google-chart/google-chart.component';
 
 describe('ProjectsListComponent', () => {
   let component: ProjectsListComponent;
@@ -67,12 +69,14 @@ describe('ProjectsListComponent', () => {
         HttpModule,
         AppRoutingModule,
         ProgressbarModule.forRoot(),
-        InMemoryWebApiModule.forRoot(InMemoryDataService)
+        InMemoryWebApiModule.forRoot(InMemoryDataService),
       ],
       declarations: [
         ProjectsListComponent, 
         UcfirstPipe, 
-        ProgressBarDynamicComponent
+        ProgressBarDynamicComponent,
+        ProjectDetailsComponent,
+        GoogleChartComponent
       ],
       providers: [ 
         LocalService,

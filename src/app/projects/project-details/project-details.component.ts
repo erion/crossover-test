@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 
 import { Projects } from '../../classes/projects';
-//import { PieChartComponent } from '../../pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-project-details',
@@ -30,7 +29,6 @@ export class ProjectDetailsComponent {
     }
   };
   
-
   constructor() { }
 
   getUnitTestChartData(project): any {

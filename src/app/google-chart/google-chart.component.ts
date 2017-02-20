@@ -28,6 +28,7 @@ export class GoogleChartComponent implements OnInit {
   ngOnInit() {
     google.charts.load('current', {'packages':['corechart']});
     this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element)
+console.log('initiated');
   }
 
   drawGraph (chartOptions, chartType, chartData, el) {
@@ -42,5 +43,10 @@ export class GoogleChartComponent implements OnInit {
       });
       wrapper.draw();
     }
+  }
+
+  updateChart() {
+    google.charts.load('current', {'packages':['corechart']});
+    this.drawGraph(this.chartOptions, this.chartType, this.chartData, this._element)
   }
 }
