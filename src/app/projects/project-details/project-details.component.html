@@ -69,7 +69,7 @@
       <div class="row">
         <div class="col-md-6 text-center"
             *ngFor="let build of project.build.builds" >
-          <i class="fa fa-desktop project-icon" aria-hidden="true"></i>
+          <i class="fa fa-desktop project-icon" [ngClass]="project.build.state.name" aria-hidden="true"></i>
           {{build | ucfirst }}  
         </div>
       </div>
@@ -156,40 +156,39 @@
         <!-- pending -->
         <div class="row" *ngSwitchCase="1">
           <div class="col-md-12 metrics-result">
+          <div class="col-md-12 metrics-result" [ngClass]="project.state.name">
             <span class="title">Result:</span>
-            {{project.state.name | ucfirst}}
-            <button>Deploy</button> to:
-            <input />
+            <span class="h1">Pending...</span>
+            <button type="button" class="btn btn-primary">Cancel</button>
+          </div>
           </div>
         </div>
 
         <!-- running -->
         <div class="row" *ngSwitchCase="2">
-          <div class="col-md-12">
-            Result: <br />
-            {{project.state.name | ucfirst}}
-            <button>Deploy</button> to:
-            <input />
+          <div class="col-md-12 metrics-result" [ngClass]="project.state.name">
+            <span class="title">Result:</span>
+            <span class="h1">Running...</span>
+            <button type="button" class="btn btn-primary">Stop</button>
           </div>
         </div>
 
         <!-- rejected -->
         <div class="row" *ngSwitchCase="3">
-          <div class="col-md-12 metrics-result">
+          <div class="col-md-12 metrics-result" [ngClass]="project.state.name">
             <span class="title">Result:</span>
             <span>Change Rejected</span>
-            <span>Metrics Reduction</span>
+            <span class="h1">Metrics Reduction</span>
             <button type="button" class="btn btn-primary">Find Issues</button>
           </div>
         </div>
 
         <!-- complete -->
         <div class="row" *ngSwitchCase="4">
-          <div class="col-md-12">
-            Result: <br />
-            {{project.state.name | ucfirst}}
-            <button>Deploy</button> to:
-            <input />
+          <div class="col-md-12 metrics-result" [ngClass]="project.state.name">
+            <span class="title">Result:</span>
+            <span class="h1">Complete</span>
+            <button type="button" class="btn btn-primary">Deploy</button> to:
           </div>
         </div>
 

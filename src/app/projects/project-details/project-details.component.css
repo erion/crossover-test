@@ -13,17 +13,33 @@
     width: 18.5% !important;
 }
 
-.pending {border: 2px solid #d3d3d3;}
-.pending span {color: #d3d3d3;}
+.pending {border: 2px solid #b0b082;}
+.pending span {color: #b0b082;}
+i.pending {
+    border: none;
+    color: #b0b082;
+}
 
 .running {border: 2px solid #5bc0de;}
 .running span {color: #5bc0de;}
+i.running {
+    border: none;
+    color: #5bc0de;
+}
 
 .rejected {border: 2px solid #d9534f;}
 .rejected span {color: #d9534f;}
+i.rejected {
+    border: none;
+    color: #d9534f;
+}
 
 .complete {border: 2px solid #5cb85c;}
 .complete span {color: #5cb85c;}
+i.complete {
+    border: none;
+    color: #5cb85c;
+}
 
 .project-icon {font-size: 4em;}
 
@@ -57,10 +73,15 @@
     align-items: center;
 }
 
-.metrics-result {
+div.metrics-result {
     height: 245px;
     margin-top: 10px;
     text-align: center;
+    border: none;
 }
 
 .metrics-result span {display: block;}
+.metrics-result span.title {
+    color: #000;
+    margin-bottom: 2em;
+}
